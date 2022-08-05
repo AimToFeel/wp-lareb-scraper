@@ -1,8 +1,8 @@
 <?php
 
-namespace WPSwiftMailer\src;
+namespace WPLarebScraper\src;
 
 use Exception;
 
-class WPSwiftMailerException extends Exception
+class WPLarebScraperException extends Exception
 {}
