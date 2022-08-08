@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin name: WP Lareb scraper
- * Description: Simple implementation of Swift Mailer for Wordpress.
- * Version: 1.1.0
+ * Description: Manages cron jobs which scrapes the Lareb website for up-to-date static data.
+ * Version: 1.0.0
  * Author: AimToFeel
  * Author URI: https://aimtofeel.com
  * License: GPLv2
@@ -49,6 +49,8 @@ function activate_wp_larab_scraper(): void
     require_once ABSPATH . 'wp-admin/includes/upgrade.php';
     dbDelta($sql);
 
+    $wpdb->query("TRUNCATE TABLE $tableName");
+
     $wpdb->insert($tableName, [
         'name' => 'covid_side_effects',
         'value' => 0,
@@ -56,6 +58,11 @@ function activate_wp_larab_scraper(): void
 
     $wpdb->insert($tableName, [
         'name' => 'covid_deaths',
+        'value' => 0,
+    ]);
+
+    $wpdb->insert($tableName, [
+        'name' => 'covid_reports_count',
         'value' => 0,
     ]);
 }
