@@ -16,9 +16,9 @@ if (!function_exists('add_action')) {
     die('Not allowed to call WP Lareb scraper directly.');
 }
 
-define('WP_SWIFT_MAILER_DIRECTORY', plugin_dir_path(__FILE__));
-require_once WP_SWIFT_MAILER_DIRECTORY . 'src/WPLarebScraper.php';
-require_once WP_SWIFT_MAILER_DIRECTORY . 'src/WPLarebScraperException.php';
+define('WP_LAREB_SCRAPER_DIRECTORY', plugin_dir_path(__FILE__));
+require_once WP_LAREB_SCRAPER_DIRECTORY . 'src/WPLarebScraper.php';
+require_once WP_LAREB_SCRAPER_DIRECTORY . 'src/WPLarebScraperException.php';
 
 $wpLarebScraper = new WPLarebScraper();
 add_action('init', [$wpLarebScraper, 'onInit']);
